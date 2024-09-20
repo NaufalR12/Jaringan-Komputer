@@ -1,0 +1,18 @@
+////intervlan
+
+coding router doang
+en
+config t
+interface fastEthernet 0/0
+no shutdown
+ex
+ex
+config t
+int fa0/0.10
+encapsulation dot1Q 10
+ip address 10.10.10.1 255.255.255.0
+ex
+int fa0/0.20
+encapsulation dot1Q 20
+ip address 192.168.0.1 255.255.255.0
+ex

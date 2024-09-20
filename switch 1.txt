@@ -1,0 +1,47 @@
+// switch 1
+Switch>enable
+Switch(vlan)#vlan 10 name admin
+VLAN 10 added:
+    Name: admin
+Switch(vlan)#vlan 20 name staff
+VLAN 20 added:
+    Name: staff
+Switch(vlan)#vlan 30 name customer-service
+VLAN 30 added:
+    Name: customer-service
+Switch(vlan)#ex
+APPLY completed.
+Exiting....
+
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#switchport mode access
+Switch(config-if)#ex
+Switch(config)#interface fastEthernet 1/1
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#switchport mode access
+Switch(config-if)#ex
+Switch(config)#interface fastEthernet 2/1
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#switchport mode access
+Switch(config-if)#ex
+
+
+
+Switch>enable
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface fa8/1
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk allowed vlan add 10
+Switch(config-if)#switchport trunk allowed vlan add 20
+Switch(config-if)#switchport trunk allowed vlan add 30
+Switch(config-if)#ex
+Switch(config)#interface fa9/1
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk allowed vlan add 10
+Switch(config-if)#switchport trunk allowed vlan add 20
+Switch(config-if)#switchport trunk allowed vlan add 30
+Switch(config-if)#ex
